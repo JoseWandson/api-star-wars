@@ -1,0 +1,37 @@
+<div class="row mt-3" *ngIf="naveEspacial; else loading">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">{{ naveEspacial.name }}</h2>
+        <h3 class="card-title">
+          Space Ship Information</h3>
+        <ul>
+          <li>Model: {{ naveEspacial.model }}</li>
+          <li>Manufacturer: {{ naveEspacial.manufacturer }}</li>
+          <li>Cost in credits: {{ naveEspacial.cost_in_credits }}</li>
+          <li>Length: {{ naveEspacial.length }}</li>
+          <li>Max atmosphering speed: {{ naveEspacial.max_atmosphering_speed }}</li>
+          <li>Crew: {{ naveEspacial.crew }}</li>
+          <li>Passengers: {{ naveEspacial.passengers }}</li>
+          <li>Cargo capacity: {{ naveEspacial.cargo_capacity }}</li>
+          <li>Consumables: {{ naveEspacial.consumables }}</li>
+          <li>Hyperdrive rating: {{ naveEspacial.hyperdrive_rating }}</li>
+          <li>MGLT: {{ naveEspacial.MGLT }}</li>
+          <li>Starship class: {{ naveEspacial.starship_class }}</li>
+        </ul>
+        <h3 class="card-title" *ngIf="naveEspacial.pilots.length">Pilots</h3>
+        <ul *ngIf="naveEspacial.pilots.length">
+          <li *ngFor="let piloto of naveEspacial.pilots">{{ piloto.name }}</li>
+        </ul>
+        <h3 class="card-title">Films</h3>
+        <ul>
+          <li *ngFor="let filme of naveEspacial.films">{{ filme }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  Carregando Informação
+</ng-template>

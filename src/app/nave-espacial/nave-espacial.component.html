@@ -1,0 +1,19 @@
+<div class="row mt-3" *ngIf="rootNaveEspacial; else loading">
+  <div class="col-md-4" *ngFor="let nave of rootNaveEspacial.results">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ nave.name }}</h5>
+        <a [routerLink]= "['/nave', nave.id]" class="btn btn-primary">Detalhe da Nave Espacial</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<app-paginacao [isPagination]="isPagination" [rootObjeto]="rootNaveEspacial" (listarObjetos)="listarNavesEspaciais($event)" 
+  [paginaAtual]="paginaAtual" [numbersPagination]="numbersPagination"></app-paginacao>
+
+<ng-template #loading>
+  Carregando Informações
+</ng-template>

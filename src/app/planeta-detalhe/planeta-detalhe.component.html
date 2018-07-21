@@ -1,0 +1,32 @@
+<div class="row mt-3" *ngIf="planeta; else loading">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">{{ planeta.name }}</h2>
+        <h3 class="card-title">Information of the Planet</h3>
+        <ul>
+          <li>Height: {{ planeta.rotation_period }}</li>
+          <li>Mass: {{ planeta.orbital_period }}</li>
+          <li>Hair color: {{ planeta.diameter }}</li>
+          <li>Skin color: {{ planeta.climate }}</li>
+          <li>Eye color: {{ planeta.gravity }}</li>
+          <li>Birth year: {{ planeta.terrain }}</li>
+          <li>Gender: {{ planeta.surface_water }}</li>
+          <li>Gender: {{ planeta.population }}</li>
+        </ul>
+        <h3 class="card-title" *ngIf="planeta.residents.length">Residents</h3>
+        <ul *ngIf="planeta.residents.length">
+          <li *ngFor="let personagem of planeta.residents">{{ personagem.name }}</li>
+        </ul>
+        <h3 class="card-title" *ngIf="planeta.films.length">Films</h3>
+        <ul *ngIf="planeta.films.length">
+          <li *ngFor="let filme of planeta.films">{{ filme }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  Carregando Informação
+</ng-template>
